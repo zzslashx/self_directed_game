@@ -24,10 +24,22 @@ void tactileRect(int x, int y, int w, int h) {
   rect(x, y, w, h, 50);
 }
 
+//void drawWedge(float cx, float cy, float r1, float r2, float a, float sweep, color c) {
+//  noStroke();
+//  fill(c);
+//  arc(cx, cy, r2*2, r2*2, a, a+sweep, PIE);
+//  fill(#181A18);
+//  arc(cx, cy, r1*2, r1*2, a, a+sweep, PIE);
+//}
 void drawWedge(float cx, float cy, float r1, float r2, float a, float sweep, color c) {
   noStroke();
   fill(c);
-  arc(cx, cy, r2*2, r2*2, a, a+sweep, PIE);
-  fill(#181A18);
-  arc(cx, cy, r1*2, r1*2, a, a+sweep, PIE);
+  beginShape();
+  for (float t = a; t <= a + sweep; t += 0.02) {
+    vertex(cx + cos(t) * r2, cy + sin(t) * r2);
+  }
+  for (float t = a + sweep; t >= a; t -= 0.02) {
+    vertex(cx + cos(t) * r1, cy + sin(t) * r1);
+  }
+  endShape(CLOSE);
 }
