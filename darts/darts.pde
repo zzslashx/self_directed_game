@@ -29,9 +29,27 @@ color warmGreen   = #7BB661;
 color coolGreen   = #00A86B;
 //black
 color black  = #000000;
+
+//SELECTOR VARIABLES---------------------------------------------------------------------------------------
+float sX,sY,vx,vy;
+boolean xSelected, ySelected;
+
+//SCORE VARS---------------------------------------------------------------------------------------
+int blueScore;
+int redScore;
+
+
 void setup(){
 size(750,950,FX2D);
 textAlign(CENTER,CENTER);
+xSelected=false;
+ySelected=false;
+sX=width/2;
+sY=height/3;
+vx=5;
+vy=-5;
+redScore=300;
+blueScore=300;
 
 }
 
@@ -47,5 +65,5 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
-  println(mouseX,mouseY);
+ 
 }
