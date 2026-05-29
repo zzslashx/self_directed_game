@@ -31,26 +31,26 @@ color coolGreen   = #00A86B;
 color black  = #000000;
 
 //SELECTOR VARIABLES---------------------------------------------------------------------------------------
-float sX,sY,vx,vy;
+float sX, sY, vx, vy;
 boolean xSelected, ySelected;
 
 //SCORE VARS---------------------------------------------------------------------------------------
 int blueScore;
 int redScore;
+//TIMER VARS---------------------------------------------------------------------------------------
+int pauseFrame = -1;
 
-
-void setup(){
-size(750,950,FX2D);
-textAlign(CENTER,CENTER);
-xSelected=false;
-ySelected=false;
-sX=width/2;
-sY=height/3;
-vx=5;
-vy=-5;
-redScore=300;
-blueScore=300;
-
+void setup() {
+  size(750, 950, FX2D);
+  textAlign(CENTER, CENTER);
+  xSelected=false;
+  ySelected=false;
+  sX=width/2;
+  sY=height/3;
+  vx=5;
+  vy=-5;
+  redScore=300;
+  blueScore=300;
 }
 
 void draw() {
@@ -65,5 +65,4 @@ void draw() {
   } else {
     println("Error: Mode = " + mode);
   }
- 
 }

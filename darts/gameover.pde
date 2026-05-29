@@ -1,10 +1,5 @@
-void gameover(){
-
-
+void gameover() {
 }
 
-void gameoverClicks(){
-
-
-
+void gameoverClicks() {
 }

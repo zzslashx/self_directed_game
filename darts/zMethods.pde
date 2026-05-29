@@ -33,17 +33,17 @@ void drawWedge(float x, float y, float r1, float r2, float startAngle, float ang
   arc(x, y, r1*2, r1*2, startAngle, startAngle+angleAdded, PIE);
 }
 
-void drawTriangle(int x, int y, int x2, int y2){
-//just to make it faster to type(time saver)
-strokeWeight(5);
-triangle(x,y,x2,y2,width/2,height/3);
+void drawTriangle(int x, int y, int x2, int y2) {
+  //just to make it faster to type(time saver)
+  strokeWeight(5);
+  triangle(x, y, x2, y2, width/2, height/3);
 }
 
-void resetForNextPlayer(){
-xSelected=false;
-ySelected=false;
-sX=width/2;
-sY=height/3;
-vx=5;
-vy=5;
+void resetForNextPlayer() {
+  xSelected=false;
+  ySelected=false;
+  sX=width/2;
+  sY=height/3;
+  vx=5;
+  vy=5;
 }

@@ -24,29 +24,31 @@ void game() {
   fill(0, 150);
   noStroke();
   circle(sX, sY, 25);
-  if (xSelected==false) {
-    sX+=vx;
-    if (sX+25/2>width/2+615/2 || sX-25/2<width/2-615/2) vx=-vx;
-  } else {
-    sY+=vy;
-    if (sY+25/2>height/3+615/2 || sY-25/2<height/3-615/2) vy=-vy;
-  }
-}
-
-void gameClicks() {
-  println(mouseX, mouseY);
   if (xSelected == false) {
-    xSelected = true;
-    vx=0;
-    delay(300);
+    sX += vx;
+    if (sX + 12 > width/2 + 615/2 || sX - 12 < width/2 - 615/2) vx = -vx;
   } else if (ySelected == false) {
-    ySelected = true;
-    vy = 0;
-    delay(500);
+    sY += vy;
+    if (sY + 12 > height/3 + 615/2 || sY - 12 < height/3 - 615/2) vy = -vy;
+  }
+
+  if (pauseFrame > 0 && frameCount >= pauseFrame) {
+    pauseFrame = -1;
     resetForNextPlayer();
   }
 }
 
+void gameClicks() {
+  if (xSelected == false) {
+    xSelected = true;
+    vx = 0;
+    vy = 5;  // start Y moving immediately
+  } else if (ySelected == false) {
+    ySelected = true;
+    vy = 0;
+    pauseFrame = frameCount + 30;  // wait 30 frames (~0.5s) before reset
+  }
+}
 
 void drawDartBoard() {
 
